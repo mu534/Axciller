@@ -12,16 +12,26 @@ const Navbar: FC = () => {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 flex flex-col px-4 sm:px-6 md:px-8 lg:px-12 py-3 sm:py-4 shadow-lg transition-all duration-300"
+      className="fixed top-2 left-5 right-5
+                 rounded-[1.5rem_0_0_1.5rem]
+                 border border-transparent
+                 bg-transparent
+                 z-50
+                 flex flex-col sm:flex-row
+                 items-center justify-between
+                 px-6 sm:px-8 md:px-10 lg:px-12
+                 py-3 sm:py-4
+                 shadow-lg
+                 transition-all duration-300"
       style={{
         background:
           "linear-gradient(to right, #DC2626, #00E0FF, #9B5CF6, black)",
       }}
     >
       {/* Top bar with logo and hamburger */}
-      <div className="flex justify-between items-center w-full max-w-7xl mx-auto">
+      <div className="flex justify-between items-center w-full  max-w-7xl mx-auto">
         {/* Logo Section */}
-        <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4">
+        <div className="flex items-center space-x-2 sm:space-x-3  md:space-x-4">
           <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14">
             <svg
               width="100%"
