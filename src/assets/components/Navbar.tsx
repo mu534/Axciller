@@ -128,7 +128,7 @@ const Navbar: FC = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden flex flex-col items-center space-y-4 mt-4 pb-4 transition-all duration-300 ease-in-out ${
+        className={`lg:hidden flex flex-col items-center space-y-4  transition-all duration-300 ease-in-out ${
           isMenuOpen
             ? "max-h-96 opacity-100"
             : "max-h-0 opacity-0 overflow-hidden"
