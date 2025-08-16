@@ -13,7 +13,7 @@ const Navbar: FC = () => {
   return (
     <nav
       className="fixed top-2 left-5 right-5
-                 rounded-[5rem_5rem_5rem_5rem]
+                 
                  border border-transparent
                  bg-transparent
                  z-50
