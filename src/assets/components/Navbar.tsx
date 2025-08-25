@@ -27,10 +27,10 @@ const Navbar: FC = () => {
       }}
     >
       {/* Top bar with logo and hamburger */}
-      <div className="flex justify-between items-center w-full max-w-7xl mx-auto">
+      <div className="flex justify-between   items-center w-full max-w-7xl mx-auto">
         {/* Logo Section */}
         <div className="flex items-center space-x-2 sm:space-x-3  md:space-x-4">
-          <div className=" w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14">
+          <div className=" w-10 h-10 sm:w-12 md:w-14 md:h-14">
             <svg
               width="100%"
               height="100%"
@@ -70,7 +70,7 @@ const Navbar: FC = () => {
 
         {/* Hamburger Menu Button */}
         <button
-          className="lg:hidden text-white focus:outline-none"
+          className="lg:hidden text-white focus:outline-none m-0 p-0"
           onClick={toggleMenu}
         >
           {isMenuOpen ? (

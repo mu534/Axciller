@@ -9,6 +9,7 @@ import port5 from "../images/port5.jpg";
 import port6 from "../images/port6.jpg";
 import port7 from "../images/port7.jpg";
 import video1 from "../videos/video1.mp4";
+
 import video2 from "../videos/video2.mp4";
 import video3 from "../videos/video3.mp4";
 
