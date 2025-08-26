@@ -44,30 +44,30 @@ const Home: FC = () => {
           .st0 {
             font-family: 'Pristina-Regular', Pristina, serif;
             font-size: 24px;
-            fill: #fff;
+             fill: #fff;
           }
 
-          .st1 {
-            fill: #fff;
+           .st1 {
+             fill: #fff;
           }
 
-          .st2 {
+           .st2 {
             fill: none;
           }
 
-          .st3 {
-            stroke: #000;
-            stroke-miterlimit: 10;
-          }
+           .st3 {
+             stroke: #000;
+             stroke-miterlimit: 10;
+           }
 
-          .st4 {
-            clip-path: url(#clippath-1);
-          }
+           .st4 {
+             clip-path: url(#clippath-1);
+           }
 
           .st5 {
             clip-path: url(#clippath);
           }
-        `}
+         `}
       </style>
 
       {/* Navbar */}
@@ -112,12 +112,13 @@ const Home: FC = () => {
         </div>
 
         {/* SVG section for hero section */}
-        <div className="max-md:hidden md:flex flex-1 flex-col justify-center items-center bg-white relative">
+        <div className="max-md:hidden md:flex flex-1 flex-col justify-center items-center bg-white relative overflow-hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1366 768"
             version="1.1"
-            className="w-full max-w-[900px] md:max-w-[1not-last:100px] lg:max-w-[1100px] h-auto hover-scale"
+            className="w-full max-w-[1800px] h-auto -translate-x-10 md:-translate-x-1 hover-scale"
+            preserveAspectRatio="xMidYMid meet"
             aria-hidden="true"
           >
             <defs>

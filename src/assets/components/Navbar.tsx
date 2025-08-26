@@ -12,25 +12,28 @@ const Navbar: FC = () => {
 
   return (
     <nav
-      className="fixed top-2 left-5 right-5
-                 
-                 border border-transparent
-                 bg-transparent
-                 z-50
-                 flex flex-col sm:flex-row
-                 items-center justify-between
-                 px-6 sm:px-8 md:px-10 
-                
-                "
+      className="
+        fixed top-2 left-5 right-5
+        z-50
+        flex flex-col sm:flex-row items-center justify-between
+        px-6 sm:px-8 md:px-10
+        rounded-3xl                      /* <-- border radius */
+        border border-white/15           /* subtle border */
+        bg-white/5                       /* translucent background */
+        
+        shadow-lg                        /* depth */
+        overflow-hidden                  /* clip children to radius */
+      "
+      // If you want the gradient, keep it soft & let the radius clip it
       style={{
-        background: "linear-gradient(black)",
+        background: "black",
       }}
     >
       {/* Top bar with logo and hamburger */}
-      <div className="flex justify-between   items-center w-full max-w-7xl mx-auto">
+      <div className="flex justify-between items-center w-full max-w-7xl mx-auto ">
         {/* Logo Section */}
-        <div className="flex items-center space-x-2 sm:space-x-3  md:space-x-4">
-          <div className=" w-10 h-10 sm:w-12 md:w-14 md:h-14">
+        <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4">
+          <div className="w-10 h-10 sm:w-12 md:w-14 md:h-14 overflow-hidden">
             <svg
               width="100%"
               height="100%"
@@ -44,7 +47,7 @@ const Navbar: FC = () => {
                 fill="white"
               />
               <path
-                d="M306.432 356.763C322.97 364.965 343.024 358.211 351.222 341.679C359.421 325.146 352.66 305.095 336.122 296.894C319.583 288.692 299.529 295.445 291.331 311.978C283.132 328.510 289.893 348.561 306.432 356.763Z"
+                d="M306.432 356.763C322.97 364.965 343.024 358.211 351.222 341.679C359.421 325.146 352.66 305.095 336.122 296.894C319.583 288.692 299.529 295.445 291.331 311.978C283.132 328.51 289.893 348.561 306.432 356.763Z"
                 fill="white"
               />
               <path
@@ -70,18 +73,13 @@ const Navbar: FC = () => {
 
         {/* Hamburger Menu Button */}
         <button
-          className="lg:hidden text-white focus:outline-none m-0 p-0"
+          className="  lg:hidden text-white focus:outline-none m-0 p-0"
           onClick={toggleMenu}
         >
           {isMenuOpen ? (
             <X className="w-6 h-6 sm:w-7 sm:h-7" />
           ) : (
-            <Menu
-              className="w-9 h-6 sm:w-7 sm:h-7 
-                
-                 
-                 "
-            />
+            <Menu className="w-9 h-6 sm:w-7 sm:h-7" />
           )}
         </button>
 
@@ -89,7 +87,7 @@ const Navbar: FC = () => {
         <div className="hidden lg:flex space-x-5 xl:space-x-8 text-sm md:text-base font-medium">
           <ScrollLink
             to="about"
-            smooth={true}
+            smooth
             duration={500}
             offset={-70}
             className="text-white hover:text-gray-200 cursor-pointer transition-colors duration-200"
@@ -98,7 +96,7 @@ const Navbar: FC = () => {
           </ScrollLink>
           <ScrollLink
             to="skills"
-            smooth={true}
+            smooth
             duration={500}
             offset={-70}
             className="text-white hover:text-gray-200 cursor-pointer transition-colors duration-200"
@@ -107,7 +105,7 @@ const Navbar: FC = () => {
           </ScrollLink>
           <ScrollLink
             to="portfolio"
-            smooth={true}
+            smooth
             duration={500}
             offset={-70}
             className="text-white hover:text-gray-200 cursor-pointer transition-colors duration-200"
@@ -116,7 +114,7 @@ const Navbar: FC = () => {
           </ScrollLink>
           <ScrollLink
             to="contact"
-            smooth={true}
+            smooth
             duration={500}
             offset={-70}
             className="bg-white text-black px-4 py-1.5 rounded-full hover:bg-gray-200 text-sm font-semibold cursor-pointer transition-colors duration-200"
@@ -128,7 +126,7 @@ const Navbar: FC = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden flex flex-col items-center space-y-4  transition-all duration-300 ease-in-out ${
+        className={`lg:hidden flex flex-col items-center space-y-4 transition-all duration-300 ease-in-out ${
           isMenuOpen
             ? "max-h-96 opacity-100"
             : "max-h-0 opacity-0 overflow-hidden"
@@ -136,7 +134,7 @@ const Navbar: FC = () => {
       >
         <ScrollLink
           to="about"
-          smooth={true}
+          smooth
           duration={500}
           offset={-70}
           className="text-white hover:text-gray-200 cursor-pointer text-sm sm:text-base transition-colors duration-200"
@@ -146,7 +144,7 @@ const Navbar: FC = () => {
         </ScrollLink>
         <ScrollLink
           to="skills"
-          smooth={true}
+          smooth
           duration={500}
           offset={-70}
           className="text-white hover:text-gray-200 cursor-pointer text-sm sm:text-base transition-colors duration-200"
@@ -156,7 +154,7 @@ const Navbar: FC = () => {
         </ScrollLink>
         <ScrollLink
           to="portfolio"
-          smooth={true}
+          smooth
           duration={500}
           offset={-70}
           className="text-white hover:text-gray-200 cursor-pointer text-sm sm:text-base transition-colors duration-200"
@@ -166,7 +164,7 @@ const Navbar: FC = () => {
         </ScrollLink>
         <ScrollLink
           to="contact"
-          smooth={true}
+          smooth
           duration={500}
           offset={-70}
           className="bg-white text-black px-4 py-1.5 rounded-full hover:bg-gray-200 text-sm font-semibold cursor-pointer transition-colors duration-200"
