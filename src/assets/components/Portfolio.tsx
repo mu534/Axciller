@@ -8,49 +8,44 @@ import port4 from "../images/port4.jpg";
 import port5 from "../images/port5.jpg";
 import port6 from "../images/port6.jpg";
 import port7 from "../images/port7.jpg";
-import video1 from "../videos/video1.mp4";
 
-import video2 from "../videos/video2.mp4";
-import video3 from "../videos/video3.mp4";
+// Note: Videos should be placed in "public/videos" folder
+const portfolioItems = [
+  { id: 1, src: "/videos/video3.mp4", category: "VIDEO" },
+  { id: 2, src: port1, category: "DESIGNED" },
+  { id: 3, src: port2, category: "DESIGNED" },
+  { id: 4, src: port3, category: "DESIGNED" },
+  { id: 5, src: port4, category: "DESIGNED" },
+  { id: 6, src: port5, category: "DESIGNED" },
+  { id: 7, src: port6, category: "DESIGNED" },
+  { id: 8, src: port7, category: "DESIGNED" },
+  { id: 9, src: porto, category: "DESIGNED" },
+  { id: 10, src: "/videos/video1.mp4", category: "VIDEO" },
+  { id: 11, src: "/videos/video2.mp4", category: "VIDEO" },
+];
+
+const tabs = ["ALL", "VIDEO", "DESIGNED"] as const;
 
 const Portfolio: FC = () => {
   const [activeTab, setActiveTab] = useState<"ALL" | "VIDEO" | "DESIGNED">(
     "ALL"
   );
   const [loading, setLoading] = useState(true);
-  const videoRefs = useRef<HTMLVideoElement[]>([]); // track video elements
+  const videoRefs = useRef<Record<number, HTMLVideoElement | null>>({});
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+    const timer = setTimeout(() => setLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);
-
-  const tabs = ["ALL", "VIDEO", "DESIGNED"] as const;
-
-  const portfolioItems = [
-    { id: 1, src: video3, category: "VIDEO" },
-    { id: 2, src: port1, category: "DESIGNED" },
-    { id: 3, src: port2, category: "DESIGNED" },
-    { id: 4, src: port3, category: "DESIGNED" },
-    { id: 5, src: port4, category: "DESIGNED" },
-    { id: 6, src: port5, category: "DESIGNED" },
-    { id: 7, src: port6, category: "DESIGNED" },
-    { id: 8, src: port7, category: "DESIGNED" },
-    { id: 9, src: porto, category: "DESIGNED" },
-    { id: 10, src: video1, category: "VIDEO" },
-    { id: 11, src: video2, category: "VIDEO" },
-  ];
 
   const filteredItems =
     activeTab === "ALL"
       ? portfolioItems
       : portfolioItems.filter((item) => item.category === activeTab);
 
-  const handlePlay = (index: number) => {
-    videoRefs.current.forEach((video, i) => {
-      if (video && i !== index) {
+  const handlePlay = (id: number) => {
+    Object.entries(videoRefs.current).forEach(([key, video]) => {
+      if (video && Number(key) !== id) {
         video.pause();
       }
     });
@@ -58,7 +53,7 @@ const Portfolio: FC = () => {
 
   return (
     <section>
-      {/* 📷 Header */}
+      {/* Header */}
       <div
         className="h-64 bg-cover bg-center flex justify-center items-center"
         style={{ backgroundImage: `url(${camera})` }}
@@ -70,7 +65,7 @@ const Portfolio: FC = () => {
         </div>
       </div>
 
-      {/* 🔗 Tabs */}
+      {/* Tabs */}
       <div className="bg-black flex justify-center gap-6 py-4">
         {tabs.map((tab) => (
           <button
@@ -91,7 +86,7 @@ const Portfolio: FC = () => {
         ))}
       </div>
 
-      {/* 🖼️ Gallery */}
+      {/* Gallery */}
       <div className="bg-black py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto px-4">
           {loading
@@ -99,25 +94,30 @@ const Portfolio: FC = () => {
                 <div
                   key={idx}
                   className="w-full h-64 bg-gray-700 animate-pulse rounded"
-                ></div>
+                />
               ))
-            : filteredItems.map((item, index) => (
+            : filteredItems.map((item) => (
                 <div key={item.id}>
                   {item.category === "VIDEO" ? (
                     <video
                       controls
+                      preload="metadata"
                       ref={(el) => {
-                        if (el) videoRefs.current[index] = el;
+                        videoRefs.current[item.id] = el;
                       }}
-                      onPlay={() => handlePlay(index)}
+                      onPlay={() => handlePlay(item.id)}
                       src={item.src}
-                      className="w-full h-64 object-cover"
+                      className="w-full h-64 object-cover rounded-lg"
+                      aria-label={`Portfolio video ${item.id}`}
                     />
                   ) : (
                     <img
                       src={item.src}
-                      alt={`Portfolio item ${item.id} - ${item.category}`}
-                      className="w-full h-64 object-cover"
+                      loading="lazy"
+                      alt={`Portfolio ${item.category.toLowerCase()} ${
+                        item.id
+                      }`}
+                      className="w-full h-64 object-cover rounded-lg"
                     />
                   )}
                 </div>
