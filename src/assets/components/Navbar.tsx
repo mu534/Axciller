@@ -17,12 +17,12 @@ const Navbar: FC = () => {
         z-50
         flex flex-col sm:flex-row items-center justify-between
         px-6 sm:px-8 md:px-10
-        rounded-3xl                      /* <-- border radius */
-        border border-white/15           /* subtle border */
-        bg-white/5                       /* translucent background */
+        rounded-4xl                      
+        border border-white/15          
+        bg-white/5                      
         
-        shadow-lg                        /* depth */
-        overflow-hidden                  /* clip children to radius */
+        shadow-lg                        
+        overflow-hidden                 
       "
       // If you want the gradient, keep it soft & let the radius clip it
       style={{
@@ -30,10 +30,10 @@ const Navbar: FC = () => {
       }}
     >
       {/* Top bar with logo and hamburger */}
-      <div className="flex justify-between items-center w-full max-w-7xl">
+      <div className="flex justify-between   p-2  items-center w-full max-w-7xl">
         {/* Logo Section */}
         <div className="flex items-center space-x-2 sm:space-x-2 md:space-x-3">
-          <div className="w-10 h-10 sm:w-12 md:w-14 md:h-14 overflow-hidden">
+          <div className=" fixed  left-4 right-5  w-10 h-10 sm:w-12 md:w-14 md:h-14 overflow-hidden">
             <svg
               width="100%"
               height="100%"
