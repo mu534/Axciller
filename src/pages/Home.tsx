@@ -74,9 +74,9 @@ const Home: FC = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <div className="relative h-[calc(100vh-64px)] flex flex-col md:flex-row overflow-hidden z-10 bg-black">
+      <div className="relative h-[calc(80vh-64px)] flex flex-col md:flex-row overflow-hidden z-0 bg-black">
         {/* White diagonal section */}
-        <div className="relative flex-1 flex flex-col justify-center items-center p-8 md:p-12 text-black bg-white md:z-50 z-10 clip-diagonal">
+        <div className="relative flex-1 flex flex-col justify-center items-center p-8 md:p-12 text-black bg-white  md:z-50 z-10 clip-diagonal">
           <h2 className="text-lg fade-in">Hi, I am</h2>
           <h1 className="text-4xl md:text-6xl font-extrabold mt-2 fade-in">
             Abdurehim Zakir
